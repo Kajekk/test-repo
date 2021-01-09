@@ -15,9 +15,10 @@ type Response struct {
 }
 
 var (
-	foo  string
-	bar  int
-	port string
+	foo           string
+	bar           int
+	port          string
+	my_test_token string
 )
 
 func main() {
@@ -50,6 +51,7 @@ func main() {
 func loadConfig() error {
 	foo = os.Getenv("foo")
 	bar, _ = strconv.Atoi(os.Getenv("bar"))
+	my_test_token = os.Getenv("my_test_token")
 
 	return nil
 }
@@ -57,7 +59,6 @@ func loadConfig() error {
 func debugConfigField() {
 	for {
 		time.Sleep(30 * time.Second)
-		log.Println("Foo: " + foo)
-		log.Println("Bar: " + strconv.Itoa(bar))
+		log.Println("my_test_token: " + my_test_token)
 	}
 }
